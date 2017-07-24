@@ -152,21 +152,35 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="216"/>
                                 <color key="backgroundColor" red="0.098039215686274508" green="0.098039215686274508" blue="0.098039215686274508" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="1" green="0.74439656730000003" blue="0.02352941222" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="216" id="uAn-gR-Xpp"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="dataSource" destination="V7k-ws-ENL" id="EgC-xd-Hji"/>
                                     <outlet property="delegate" destination="V7k-ws-ENL" id="6or-0I-fTT"/>
                                 </connections>
                             </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="w24-cd-DEC">
+                                <rect key="frame" x="19.5" y="300" width="335" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.94509804249999996" green="0.94509804249999996" blue="0.94509804249999996" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.039215686274509803" green="0.039215686274509803" blue="0.039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.41115102170000001" green="0.78270483020000003" blue="0.88133502009999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="w24-cd-DEC" firstAttribute="top" secondItem="dh9-sh-12q" secondAttribute="bottom" constant="20" id="960-ix-3om"/>
                             <constraint firstItem="dh9-sh-12q" firstAttribute="top" secondItem="5iT-mr-iYO" secondAttribute="bottom" id="Tbg-A5-uLF"/>
                             <constraint firstItem="dh9-sh-12q" firstAttribute="centerX" secondItem="Cw8-g3-FxV" secondAttribute="centerX" id="TeY-xm-wEJ"/>
+                            <constraint firstItem="oUX-wc-QX6" firstAttribute="top" relation="greaterThanOrEqual" secondItem="w24-cd-DEC" secondAttribute="bottom" constant="20" id="dPq-BQ-04f"/>
+                            <constraint firstItem="w24-cd-DEC" firstAttribute="centerX" secondItem="Cw8-g3-FxV" secondAttribute="centerX" id="eCu-I3-Zu0"/>
+                            <constraint firstItem="w24-cd-DEC" firstAttribute="width" secondItem="Cw8-g3-FxV" secondAttribute="width" constant="-40" id="p8Z-qL-Als"/>
                             <constraint firstItem="dh9-sh-12q" firstAttribute="width" secondItem="Cw8-g3-FxV" secondAttribute="width" id="xdG-qx-aSa"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="descriptionLabel" destination="w24-cd-DEC" id="1cX-aE-bJu"/>
                         <outlet property="pickerView" destination="dh9-sh-12q" id="wgx-wt-q5C"/>
                     </connections>
                 </viewController>
@@ -181,7 +195,7 @@
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="BeE-xX-h5Y">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="BeE-xX-h5Y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.65882354970000001" green="0.65882354970000001" blue="0.66666668650000005" alpha="1" colorSpace="calibratedRGB"/>

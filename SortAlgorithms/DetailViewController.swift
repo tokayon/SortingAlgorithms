@@ -13,6 +13,12 @@ import UIKit
 //MARK: - DetailViewController -
 class DetailViewController: UIViewController {
     
+    //MARK: Outlets
+    @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
+    
+    //Mark: Properties
     enum PickerType {
         case sizes
         case sorters
@@ -39,8 +45,15 @@ class DetailViewController: UIViewController {
                    Constants.Sorters.quick,
                    Constants.Sorters.bucket]
     
-    @IBOutlet weak var pickerView: UIPickerView!
+    let sorterDescriptions = [Constants.SorterDescriptions.bubbleDescription,
+                              Constants.SorterDescriptions.selectionDescription,
+                              Constants.SorterDescriptions.insertionDescription,
+                              Constants.SorterDescriptions.mergeDescription,
+                              Constants.SorterDescriptions.quickDescription,
+                              Constants.SorterDescriptions.bucketDescription]
+
     
+    //MARK: Life cycle
     override func viewDidLoad() {
         self.navigationItem.title = pickerType == .sizes ? Constants.Labels.sizeOfArray : Constants.Labels.typesOfSorting
         setupPicker()
@@ -68,6 +81,26 @@ extension DetailViewController {
         }
 
         pickerView.selectRow(selectedRow, inComponent: 0, animated: false)
+        updateDescription(row: selectedRow)
+    }
+    
+    func updateDescription(row: Int) {
+        if pickerType == .sizes {
+            updateDescriptionWithSize(size: row)
+        } else {
+            updateDescriptionWithType(type: row)
+        }
+    }
+    
+    
+    func updateDescriptionWithSize(size: Int) {
+        let amount = sizes[size]
+        let desc = "Unsorted array of \(amount) numbers\nfrom 1 to 100"
+        descriptionLabel.text = desc
+    }
+    
+    func updateDescriptionWithType(type: Int) {
+        descriptionLabel.text = sorterDescriptions[type]
     }
 }
 
@@ -84,8 +117,6 @@ extension DetailViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         let titleData = pickerType == .sizes ? sizes[row] : sorters[row]
         let regularColor = UIColor(red: 241/255, green: 241/255, blue: 241/255, alpha: 0.9)
-        //let selectedColor = UIColor(red: 216/255, green: 170/255, blue: 1/255, alpha: 0.9)
-        //let color = (row == pickerView.selectedRow(inComponent: component)) ? selectedColor : regularColor
         let attributes = [NSFontAttributeName : UIFont.systemFont(ofSize: 15),
                     NSForegroundColorAttributeName: regularColor]
         let attributed = NSAttributedString(string: titleData, attributes: attributes)
@@ -94,6 +125,7 @@ extension DetailViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         pickerView.reloadAllComponents()
+        updateDescription(row: row)
         if pickerType == .sizes {
             selectedSize = sizes[row]
         } else {

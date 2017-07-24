@@ -12,7 +12,6 @@ import UIKit
 class MainViewController: UIViewController {
     
     //MARK: Outlets
-    
     @IBOutlet weak var tableView: UITableView!
     
     //MARK: Properties
