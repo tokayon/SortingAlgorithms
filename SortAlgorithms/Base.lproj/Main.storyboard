@@ -77,23 +77,44 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="0:00.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rZ1-8B-B7u">
-                                                    <rect key="frame" x="18" y="41" width="347" height="140.5"/>
+                                                    <rect key="frame" x="18" y="41" width="347" height="94.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="79"/>
                                                     <color key="textColor" red="0.94509804249999996" green="0.94509804249999996" blue="0.94509804249999996" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Generating" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qPZ-1S-BL0">
+                                                    <rect key="frame" x="149" y="170" width="85" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.92941176889999999" green="0.25490197539999998" blue="0.13725490870000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=". . ." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IuU-0v-kRY">
+                                                    <rect key="frame" x="239" y="170" width="23" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.92941176889999999" green="0.25490197539999998" blue="0.13725490870000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" red="0.039215686274509803" green="0.039215686274509803" blue="0.039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="rZ1-8B-B7u" secondAttribute="bottom" constant="10" id="4a5-ex-Axp"/>
+                                                <constraint firstItem="IuU-0v-kRY" firstAttribute="leading" secondItem="qPZ-1S-BL0" secondAttribute="trailing" constant="5" id="8YA-xD-hyh"/>
                                                 <constraint firstItem="rZ1-8B-B7u" firstAttribute="top" secondItem="cko-Sv-YX6" secondAttribute="bottom" constant="10" id="JsO-b8-tqv"/>
+                                                <constraint firstItem="IuU-0v-kRY" firstAttribute="centerY" secondItem="qPZ-1S-BL0" secondAttribute="centerY" id="LCL-bl-duj"/>
                                                 <constraint firstItem="cko-Sv-YX6" firstAttribute="top" secondItem="rKj-ua-4tr" secondAttribute="topMargin" constant="5" id="Psg-9a-Dwq"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="qPZ-1S-BL0" secondAttribute="bottom" id="UPb-AX-CuC"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="rZ1-8B-B7u" secondAttribute="trailing" constant="10" id="bij-Og-u3C"/>
+                                                <constraint firstItem="qPZ-1S-BL0" firstAttribute="top" relation="greaterThanOrEqual" secondItem="rZ1-8B-B7u" secondAttribute="bottom" constant="10" id="erf-IY-lEK"/>
                                                 <constraint firstItem="rZ1-8B-B7u" firstAttribute="leading" secondItem="rKj-ua-4tr" secondAttribute="leadingMargin" constant="10" id="ndf-NP-YFO"/>
+                                                <constraint firstItem="qPZ-1S-BL0" firstAttribute="centerX" secondItem="rKj-ua-4tr" secondAttribute="centerX" id="pSY-cx-jeP"/>
                                                 <constraint firstItem="cko-Sv-YX6" firstAttribute="leading" secondItem="rKj-ua-4tr" secondAttribute="leadingMargin" constant="10" id="r4r-8D-h4U"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.15294117647058825" green="0.15294117647058825" blue="0.15294117647058825" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="dotLabel" destination="IuU-0v-kRY" id="F9P-gh-HLI"/>
+                                            <outlet property="statusLabel" destination="qPZ-1S-BL0" id="XCN-Qh-wl1"/>
+                                            <outlet property="timeLabel" destination="rZ1-8B-B7u" id="nuo-GF-1HQ"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -103,11 +124,14 @@
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OdC-x1-JOa">
                                 <rect key="frame" x="-0.5" y="600.5" width="375" height="66.5"/>
-                                <color key="backgroundColor" red="0.17012320157628258" green="0.54070191062176165" blue="0.25135646171779469" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.1647058874" green="0.54117647058823526" blue="0.25098039215686274" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                 <state key="normal" title="START">
                                     <color key="titleColor" red="0.94509804249999996" green="0.94509804249999996" blue="0.94509804249999996" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="startPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OUk-hw-qcV"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -128,6 +152,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="startButton" destination="OdC-x1-JOa" id="MHs-qp-c6H"/>
                         <outlet property="tableView" destination="m0x-MQ-xXM" id="Tyl-Ji-QP1"/>
                         <segue destination="V7k-ws-ENL" kind="show" identifier="DetailsSegueID" id="D3j-W9-boA"/>
                     </connections>

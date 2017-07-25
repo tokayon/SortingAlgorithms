@@ -20,6 +20,8 @@ struct Constants {
     struct Labels {
         static let sizeOfArray = "Size of Array"
         static let typesOfSorting = "Type of Sorting"
+        static let start = "START"
+        static let cancel = "CANCEL"
     }
     
     struct Sorters {
@@ -29,6 +31,13 @@ struct Constants {
         static let merge =      "Merge sort"
         static let quick =      "Quick sort"
         static let bucket =     "Bucket sort"
+    }
+    
+    struct Dots {
+        static let empty = ""
+        static let one = "."
+        static let two = ". ."
+        static let three = ". . ."
     }
     
     struct SorterDescriptions {
@@ -58,16 +67,5 @@ struct Constants {
         static let million =        "1_000_000"
         static let fiveMillion =    "5_000_000"
         static let tenMillion =     "10_000_000"
-    }
-}
-
-//To avoid unwrapping
-extension String {
-    var intValue: Int {
-        if let number = Int(self) {
-            return number
-        } else {
-            return 0
-        }
     }
 }

@@ -11,5 +11,8 @@ import UIKit
 
 class StatusCell: UITableViewCell {
     
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var dotLabel: UILabel!
     
 }
