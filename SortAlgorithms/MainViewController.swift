@@ -27,7 +27,7 @@ class MainViewController: UIViewController {
     var statusLabel: UILabel? = nil
     var dotLabel: UILabel? = nil
     
-    let dots = [Constants.Dots.empty, Constants.Dots.one, Constants.Dots.two, Constants.Dots.three]
+    let dots = [Constants.Dots.zero, Constants.Dots.one, Constants.Dots.two, Constants.Dots.three]
     
     enum Status: String {
         case ready = ""
@@ -63,7 +63,6 @@ extension MainViewController {
     
     func startGeneratingAnimation() {
         guard statusLabel != nil, generatingTimer == nil else { return }
-        statusLabel?.isHidden = false
         statusLabel?.textColor = UIColor.customOrange
         animateGeneratingLabel()
         generatingTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(animateGeneratingLabel), userInfo: nil, repeats: true)
@@ -72,7 +71,6 @@ extension MainViewController {
     func stopGeneratingAnimation() {
         guard statusLabel != nil else { return }
         statusLabel?.alpha = 1.0
-        statusLabel?.isHidden = true
         if generatingTimer != nil {
             generatingTimer?.invalidate()
             generatingTimer = nil
@@ -84,14 +82,12 @@ extension MainViewController {
         statusLabel?.textColor = UIColor.customBlue
         dotLabel?.textColor = UIColor.customBlue
         dotLabel?.text = dots[0]
-        statusLabel?.isHidden = false
         dotLabel?.isHidden = false
         sortingTimer = Timer.scheduledTimer(timeInterval: 0.6, target: self, selector: #selector(setupDotLabel), userInfo: nil, repeats: true)
     }
     
     func stopSortingAnimation() {
         guard statusLabel != nil, dotLabel != nil else { return }
-        statusLabel?.isHidden = true
         dotLabel?.isHidden = true
         if sortingTimer != nil {
             sortingTimer?.invalidate()
@@ -116,35 +112,34 @@ extension MainViewController {
 extension MainViewController {
     func setupProcess(status: Status) {
         processStatus = status
+        
+        let statusColor = status == .generating ? UIColor.customOrange : status == .sorting ? UIColor.customBlue : UIColor.customGreen
+
         print("Setup process with status:", status)
         if let statusLabel = statusLabel {
             statusLabel.text = processStatus.rawValue
+            statusLabel.isHidden = status == .ready
+            statusLabel.textColor = statusColor
         }
         
-        startButton.isEnabled = processStatus != .sorted
-        var buttonTitle = Constants.Labels.start
         
+        startButton.isEnabled = processStatus != .sorted
+        startButton.backgroundColor = statusColor
+        var buttonTitle = Constants.Labels.start
         switch status {
         case .ready:
-            startButton.backgroundColor = UIColor.customGreen
+            break
         case .generating:
-            startButton.backgroundColor = UIColor.customOrange
             buttonTitle = Constants.Labels.cancel
             startGeneratingAnimation()
             generateArray()
         case .sorting:
-            startButton.backgroundColor = UIColor.customBlue
             buttonTitle = Constants.Labels.cancel
             startSortingAnimation()
             sortArray()
         case .sorted:
-            guard statusLabel != nil else { return }
-            startButton.backgroundColor = UIColor.customGreen
-            statusLabel?.textColor = UIColor.customGreen
-            statusLabel?.isHidden = false
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {
                 self.setupProcess(status: .ready)
-                self.statusLabel?.isHidden = true
             })
         }
         

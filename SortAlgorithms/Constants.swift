@@ -34,7 +34,7 @@ struct Constants {
     }
     
     struct Dots {
-        static let empty = ""
+        static let zero = ""
         static let one = "."
         static let two = ". ."
         static let three = ". . ."
