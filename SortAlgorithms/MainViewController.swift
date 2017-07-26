@@ -16,11 +16,14 @@ class MainViewController: UIViewController {
     @IBOutlet weak var startButton: UIButton!
     
     
-    //MARK: Properties
+    //MARK: Vars
     var sizeOfArray = Constants.Sizes.ten
     var typeOfSorting = Constants.Sorters.quick
     var generatingTimer: Timer? = nil
     var sortingTimer: Timer? = nil
+    var clockTimer: Timer? = nil
+    var startTime: Double = 0
+    var time: Double = 0
     
     //AnimationLabels
     var timeLabel: UILabel? = nil
@@ -95,6 +98,19 @@ extension MainViewController {
         }
     }
     
+    func startClock() {
+        guard clockTimer == nil else { return }
+        startTime = Date().timeIntervalSinceReferenceDate
+        clockTimer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(updateClock), userInfo: nil, repeats: true)
+    }
+    
+    func stopClock() {
+        if clockTimer != nil {
+            clockTimer?.invalidate()
+            clockTimer = nil
+        }
+    }
+    
     func animateGeneratingLabel() {
         statusLabel?.alpha = 1.0
         UIView.animate(withDuration: 0.5, animations: {
@@ -136,6 +152,7 @@ extension MainViewController {
         case .sorting:
             buttonTitle = Constants.Labels.cancel
             startSortingAnimation()
+            startClock()
             sortArray()
         case .sorted:
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {
@@ -145,6 +162,22 @@ extension MainViewController {
         
         startButton.setTitle(buttonTitle, for: .normal)
 
+    }
+    
+    func updateClock() {
+        time = Date().timeIntervalSinceReferenceDate - startTime
+        let mins = (Int(time)/60)%60
+        let secs = time.truncatingRemainder(dividingBy: 60.0)
+        let resultTime = String(format:"%02d:%05.2f", mins, secs)
+        if let timeLabel = timeLabel {
+            timeLabel.text = resultTime
+        }
+    }
+    
+    func resetClock() {
+        if let timeLabel = timeLabel {
+            timeLabel.text = "00:00.00"
+        }
     }
     
     func setupDotLabel() {

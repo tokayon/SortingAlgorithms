@@ -6,7 +6,6 @@
 //  Copyright © 2017 SergeSinkevych. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 
@@ -117,7 +116,8 @@ extension DetailViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         let titleData = pickerType == .sizes ? sizes[row] : sorters[row]
         let regularColor = UIColor.customWhite
-        let attributes = [NSFontAttributeName : UIFont.systemFont(ofSize: 15),
+        let font = UIFont(name: "Baskerville", size: 15)!
+        let attributes = [NSFontAttributeName : font,
                     NSForegroundColorAttributeName: regularColor]
         let attributed = NSAttributedString(string: titleData, attributes: attributes)
         return attributed

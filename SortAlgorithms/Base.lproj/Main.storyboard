@@ -37,14 +37,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zgx-Ek-V7O">
-                                                    <rect key="frame" x="18" y="13" width="37.5" height="18"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <rect key="frame" x="18" y="13" width="39" height="20"/>
+                                                    <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="17"/>
                                                     <color key="textColor" red="0.84538941062176165" green="0.66482604164953096" blue="0.0039215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100_000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3eV-tq-LSz">
-                                                    <rect key="frame" x="18" y="55" width="80.5" height="24"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <rect key="frame" x="18" y="57" width="70" height="23"/>
+                                                    <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="20"/>
                                                     <color key="textColor" red="0.65882354970000001" green="0.65882354970000001" blue="0.66666668650000005" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -71,26 +71,26 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Status:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cko-Sv-YX6">
-                                                    <rect key="frame" x="18" y="13" width="48.5" height="18"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <rect key="frame" x="18" y="13" width="46" height="20"/>
+                                                    <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="17"/>
                                                     <color key="textColor" red="0.84538941059999995" green="0.66482604160000003" blue="0.0041840974980000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="0:00.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rZ1-8B-B7u">
-                                                    <rect key="frame" x="18" y="41" width="347" height="94.5"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="79"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="00:00.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rZ1-8B-B7u">
+                                                    <rect key="frame" x="78.5" y="43" width="227.5" height="74.5"/>
+                                                    <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="65"/>
                                                     <color key="textColor" red="0.94509804249999996" green="0.94509804249999996" blue="0.94509804249999996" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Generating" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qPZ-1S-BL0">
-                                                    <rect key="frame" x="149" y="170" width="85" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="153" y="171" width="77.5" height="20"/>
+                                                    <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="17"/>
                                                     <color key="textColor" red="0.92941176889999999" green="0.25490197539999998" blue="0.13725490870000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=". . ." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IuU-0v-kRY">
-                                                    <rect key="frame" x="239" y="170" width="23" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="235.5" y="171" width="21.5" height="20"/>
+                                                    <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="17"/>
                                                     <color key="textColor" red="0.92941176889999999" green="0.25490197539999998" blue="0.13725490870000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -102,10 +102,9 @@
                                                 <constraint firstItem="IuU-0v-kRY" firstAttribute="centerY" secondItem="qPZ-1S-BL0" secondAttribute="centerY" id="LCL-bl-duj"/>
                                                 <constraint firstItem="cko-Sv-YX6" firstAttribute="top" secondItem="rKj-ua-4tr" secondAttribute="topMargin" constant="5" id="Psg-9a-Dwq"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="qPZ-1S-BL0" secondAttribute="bottom" id="UPb-AX-CuC"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="rZ1-8B-B7u" secondAttribute="trailing" constant="10" id="bij-Og-u3C"/>
                                                 <constraint firstItem="qPZ-1S-BL0" firstAttribute="top" relation="greaterThanOrEqual" secondItem="rZ1-8B-B7u" secondAttribute="bottom" constant="10" id="erf-IY-lEK"/>
-                                                <constraint firstItem="rZ1-8B-B7u" firstAttribute="leading" secondItem="rKj-ua-4tr" secondAttribute="leadingMargin" constant="10" id="ndf-NP-YFO"/>
                                                 <constraint firstItem="qPZ-1S-BL0" firstAttribute="centerX" secondItem="rKj-ua-4tr" secondAttribute="centerX" id="pSY-cx-jeP"/>
+                                                <constraint firstItem="rZ1-8B-B7u" firstAttribute="centerX" secondItem="rKj-ua-4tr" secondAttribute="centerX" id="qMj-J8-NrE"/>
                                                 <constraint firstItem="cko-Sv-YX6" firstAttribute="leading" secondItem="rKj-ua-4tr" secondAttribute="leadingMargin" constant="10" id="r4r-8D-h4U"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -125,7 +124,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OdC-x1-JOa">
                                 <rect key="frame" x="-0.5" y="600.5" width="375" height="66.5"/>
                                 <color key="backgroundColor" red="0.1647058874" green="0.54117647058823526" blue="0.25098039215686274" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Baskerville-Bold" family="Baskerville" pointSize="17"/>
                                 <state key="normal" title="START">
                                     <color key="titleColor" red="0.94509804249999996" green="0.94509804249999996" blue="0.94509804249999996" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -186,8 +185,8 @@
                                 </connections>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="w24-cd-DEC">
-                                <rect key="frame" x="19.5" y="300" width="335" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <rect key="frame" x="19.5" y="300" width="335" height="20"/>
+                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="17"/>
                                 <color key="textColor" red="0.94509804249999996" green="0.94509804249999996" blue="0.94509804249999996" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
