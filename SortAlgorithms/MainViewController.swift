@@ -53,6 +53,7 @@ class MainViewController: UIViewController {
     
     @IBAction func startPressed(_ sender: UIButton) {
         if processStatus == .ready {
+            resetClock()
             setupProcess(status: .generating)
         } else if processStatus == .generating || processStatus == .sorting {
             cancelProcess()
@@ -148,14 +149,13 @@ extension MainViewController {
         case .generating:
             buttonTitle = Constants.Labels.cancel
             startGeneratingAnimation()
-            generateArray()
+            generateArray(size: sizeOfArray.intValue)
         case .sorting:
             buttonTitle = Constants.Labels.cancel
             startSortingAnimation()
             startClock()
-            sortArray()
         case .sorted:
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
                 self.setupProcess(status: .ready)
             })
         }
@@ -188,18 +188,25 @@ extension MainViewController {
             text == dots[2] ? dots[3] : dots[0]
     }
     
-    func generateArray() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-            guard self.processStatus == .generating else { return }
-            self.stopGeneratingAnimation()
-            self.setupProcess(status: .sorting)
+    func generateArray(size: Int) {
+        DispatchQueue.global().async {
+            Generator.generateArray(size: size) { result in
+                self.stopGeneratingAnimation()
+                if result == nil {
+                    self.setupProcess(status: .ready)
+                } else {
+                    self.setupProcess(status: .sorting)
+                    self.sortArray(array: result!)
+                }
+            }
         }
     }
     
-    func sortArray() {
+    func sortArray(array: [Int]) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
             guard self.processStatus == .sorting else { return }
             self.stopSortingAnimation()
+            self.stopClock()
             self.setupProcess(status: .sorted)
         }
     }

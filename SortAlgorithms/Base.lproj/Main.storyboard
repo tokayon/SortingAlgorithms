@@ -30,7 +30,7 @@
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="optionCellID" rowHeight="100" id="j7E-GP-wln" customClass="OptionCell" customModule="SortAlgorithms" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="56" width="383" height="100"/>
+                                        <rect key="frame" x="0.0" y="55" width="383" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="j7E-GP-wln" id="wyq-Gz-oSP">
                                             <rect key="frame" x="0.0" y="0.0" width="350" height="99"/>
@@ -64,10 +64,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="statusCellID" rowHeight="200" id="69V-Wi-W3R" customClass="StatusCell" customModule="SortAlgorithms" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="156" width="383" height="200"/>
+                                        <rect key="frame" x="0.0" y="155" width="383" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="69V-Wi-W3R" id="rKj-ua-4tr">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="199"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Status:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cko-Sv-YX6">
@@ -83,14 +83,14 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Generating" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qPZ-1S-BL0">
-                                                    <rect key="frame" x="153" y="171" width="77.5" height="20"/>
-                                                    <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="17"/>
+                                                    <rect key="frame" x="146" y="168" width="91" height="23"/>
+                                                    <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="20"/>
                                                     <color key="textColor" red="0.92941176889999999" green="0.25490197539999998" blue="0.13725490870000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=". . ." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IuU-0v-kRY">
-                                                    <rect key="frame" x="235.5" y="171" width="21.5" height="20"/>
-                                                    <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="17"/>
+                                                    <rect key="frame" x="242" y="168" width="25" height="23"/>
+                                                    <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="20"/>
                                                     <color key="textColor" red="0.92941176889999999" green="0.25490197539999998" blue="0.13725490870000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>

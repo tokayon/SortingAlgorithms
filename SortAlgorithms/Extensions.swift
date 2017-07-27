@@ -10,7 +10,7 @@ import UIKit
 
 extension String {
     var intValue: Int {
-        if let number = Int(self) {
+        if let number = Int(self.replacingOccurrences(of: "_", with: "")) {
             return number
         } else {
             return 0

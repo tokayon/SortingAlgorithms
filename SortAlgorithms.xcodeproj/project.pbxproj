@@ -17,6 +17,7 @@
 		E7793C8E1F24596000957F76 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7793C8D1F24596000957F76 /* MainViewController.swift */; };
 		E7793C901F245BDF00957F76 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7793C8F1F245BDF00957F76 /* Constants.swift */; };
 		E7793C961F2717AF00957F76 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7793C951F2717AF00957F76 /* Extensions.swift */; };
+		E7793C981F28806D00957F76 /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7793C971F28806D00957F76 /* Generator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		E7793C8D1F24596000957F76 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E7793C8F1F245BDF00957F76 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E7793C951F2717AF00957F76 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		E7793C971F28806D00957F76 /* Generator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Generator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 			children = (
 				E7793C8F1F245BDF00957F76 /* Constants.swift */,
 				E7793C951F2717AF00957F76 /* Extensions.swift */,
+				E7793C971F28806D00957F76 /* Generator.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7793C761F24447400957F76 /* AppDelegate.swift in Sources */,
+				E7793C981F28806D00957F76 /* Generator.swift in Sources */,
 				E7793C8C1F24574700957F76 /* DetailViewController.swift in Sources */,
 				E7793C8E1F24596000957F76 /* MainViewController.swift in Sources */,
 				E7793C881F24489100957F76 /* OptionCell.swift in Sources */,
