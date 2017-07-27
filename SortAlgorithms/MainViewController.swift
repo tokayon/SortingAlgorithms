@@ -41,10 +41,16 @@ class MainViewController: UIViewController {
     
     var processStatus: Status = .ready
     
+    var sortedCompletion: ([Int]?) -> () = {_ in }
+    
     //MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupProcess(status: .ready)
+        
+        sortedCompletion = { sortedArray in
+            self.handleSorted(array: sortedArray)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -175,6 +181,7 @@ extension MainViewController {
     }
     
     func resetClock() {
+        stopClock()
         if let timeLabel = timeLabel {
             timeLabel.text = "00:00.00"
         }
@@ -202,20 +209,47 @@ extension MainViewController {
         }
     }
     
+    
     func sortArray(array: [Int]) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-            guard self.processStatus == .sorting else { return }
-            self.stopSortingAnimation()
-            self.stopClock()
-            self.setupProcess(status: .sorted)
+        guard self.processStatus == .sorting else { return }
+        switch typeOfSorting {
+        case Constants.Sorters.bubble:
+            Sorters.sortBubble(array: array, completion: sortedCompletion)
+        case Constants.Sorters.selection:
+            Sorters.sortSelection(array: array, completion: sortedCompletion)
+        case Constants.Sorters.insertion:
+            Sorters.sortInsertion(array: array, completion: sortedCompletion)
+        case Constants.Sorters.merge:
+            Sorters.sortMerge(array: array, completion: sortedCompletion)
+        case Constants.Sorters.quick:
+            Sorters.sortMerge(array: array, completion: sortedCompletion)
+        case Constants.Sorters.bucket:
+            Sorters.sortBucket(array: array, completion: sortedCompletion)
+        default:
+            break
         }
+
     }
     
     func cancelProcess() {
         print("Cancel")
         stopGeneratingAnimation()
         stopSortingAnimation()
+        Generator.cancelled = true
+        Sorters.cancelled = true
+        resetClock()
         setupProcess(status: .ready)
+    }
+    
+    func handleSorted(array: [Int]?) {
+        stopSortingAnimation()
+        stopClock()
+        if array != nil {
+            setupProcess(status: .sorted)
+            print(array!)
+        } else {
+            setupProcess(status: .ready)
+        }
     }
 }
 

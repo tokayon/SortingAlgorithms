@@ -13,13 +13,13 @@ class Generator: NSObject {
     
     static let upperBound: UInt32 = 100
     static let parts: Int = 3
-    static var stopper: Bool = false
+    static var  cancelled: Bool = false
     
     
     class func generateArray(size: Int, completion: @escaping ([Int]?) -> Void) {
         var array: [Int] = []
         for _ in 1...size {
-            if stopper {
+            if cancelled {
                 completion(nil)
                 return
             }
