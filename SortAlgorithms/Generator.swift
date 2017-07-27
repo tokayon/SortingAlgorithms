@@ -20,7 +20,9 @@ class Generator: NSObject {
         var array: [Int] = []
         for _ in 1...size {
             if cancelled {
-                completion(nil)
+                DispatchQueue.main.async {
+                    completion(nil)
+                }
                 return
             }
             array.append(generateNumber())

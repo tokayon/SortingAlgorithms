@@ -18,7 +18,7 @@ class MainViewController: UIViewController {
     
     //MARK: Vars
     var sizeOfArray = Constants.Sizes.ten
-    var typeOfSorting = Constants.Sorters.quick
+    var typeOfSorting = Constants.Sorters.swift
     var generatingTimer: Timer? = nil
     var sortingTimer: Timer? = nil
     var clockTimer: Timer? = nil
@@ -49,7 +49,9 @@ class MainViewController: UIViewController {
         setupProcess(status: .ready)
         
         sortedCompletion = { sortedArray in
-            self.handleSorted(array: sortedArray)
+            DispatchQueue.main.async {
+                self.handleSorted(array: sortedArray)
+            }
         }
     }
     
@@ -60,6 +62,8 @@ class MainViewController: UIViewController {
     @IBAction func startPressed(_ sender: UIButton) {
         if processStatus == .ready {
             resetClock()
+            Generator.cancelled = false
+            Sorters.cancelled = false
             setupProcess(status: .generating)
         } else if processStatus == .generating || processStatus == .sorting {
             cancelProcess()
@@ -203,7 +207,9 @@ extension MainViewController {
                     self.setupProcess(status: .ready)
                 } else {
                     self.setupProcess(status: .sorting)
-                    self.sortArray(array: result!)
+                    DispatchQueue.global().async {
+                        self.sortArray(array: result!)
+                    }
                 }
             }
         }
@@ -213,6 +219,8 @@ extension MainViewController {
     func sortArray(array: [Int]) {
         guard self.processStatus == .sorting else { return }
         switch typeOfSorting {
+        case Constants.Sorters.swift:
+            Sorters.sortSwift(array: array, completion: sortedCompletion)
         case Constants.Sorters.bubble:
             Sorters.sortBubble(array: array, completion: sortedCompletion)
         case Constants.Sorters.selection:
@@ -246,7 +254,7 @@ extension MainViewController {
         stopClock()
         if array != nil {
             setupProcess(status: .sorted)
-            print(array!)
+            //print(array!)
         } else {
             setupProcess(status: .ready)
         }
@@ -297,7 +305,6 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         }
     }
-    
 }
 
 //MARK: - Navigation -
@@ -307,10 +314,10 @@ extension MainViewController {
         
         if let indexPath = sender as? IndexPath, indexPath.row == 0 {
             detailVC.pickerType = .sizes
-            detailVC.selectedSize = sizeOfArray
         } else if let indexPath = sender as? IndexPath, indexPath.row == 1 {
             detailVC.pickerType = .sorters
-            detailVC.selectedType = typeOfSorting
         }
+        detailVC.selectedSize = sizeOfArray
+        detailVC.selectedType = typeOfSorting
     }
 }

@@ -25,7 +25,7 @@ class DetailViewController: UIViewController {
     
     var pickerType: PickerType = .sizes
     var selectedSize = Constants.Sizes.ten
-    var selectedType = Constants.Sorters.quick
+    var selectedType = Constants.Sorters.swift
     
     let sizes = [Constants.Sizes.one,
                  Constants.Sizes.five,
@@ -37,14 +37,16 @@ class DetailViewController: UIViewController {
                  Constants.Sizes.fiveMillion,
                  Constants.Sizes.tenMillion]
     
-    let sorters = [Constants.Sorters.bubble,
+    let sorters = [Constants.Sorters.swift,
+                   Constants.Sorters.bubble,
                    Constants.Sorters.selection,
                    Constants.Sorters.insertion,
                    Constants.Sorters.merge,
                    Constants.Sorters.quick,
                    Constants.Sorters.bucket]
     
-    let sorterDescriptions = [Constants.SorterDescriptions.bubbleDescription,
+    let sorterDescriptions = [Constants.SorterDescriptions.swiftDescription,
+                              Constants.SorterDescriptions.bubbleDescription,
                               Constants.SorterDescriptions.selectionDescription,
                               Constants.SorterDescriptions.insertionDescription,
                               Constants.SorterDescriptions.mergeDescription,
@@ -61,6 +63,9 @@ class DetailViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         if let mainVC = self.parent?.childViewControllers[0] as? MainViewController {
+            if mainVC.sizeOfArray != selectedSize || mainVC.typeOfSorting != selectedType {
+                mainVC.resetClock()
+            }
             mainVC.sizeOfArray = selectedSize
             mainVC.typeOfSorting = selectedType
         }

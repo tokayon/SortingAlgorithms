@@ -13,11 +13,34 @@ class Sorters: NSObject {
     static var cancelled: Bool = false
 }
 
+//MARK: - Swift sort -
+extension Sorters {
+    class func sortSwift(array: [Int], completion: @escaping ([Int]?) -> Void) {
+        guard cancelled == false else { completion(nil) ; return }
+        let sorted = array.sorted()
+        completion(sorted)
+    }
+}
+
 //MARK: - Bubble sort -
 extension Sorters {
     class func sortBubble(array: [Int], completion: @escaping ([Int]?) -> Void) {
         guard cancelled == false else { completion(nil) ; return }
-        completion(nil)
+        
+        var resultArray = array
+        var swapped: Bool = true
+        
+        while swapped && !cancelled {
+            swapped = false
+            for index in 1..<array.count  {
+                guard cancelled == false else { completion(nil) ; return }
+                if resultArray[index-1] > resultArray[index] {
+                    swap(&resultArray[index-1], &resultArray[index])
+                    swapped = true
+                }
+            }
+        }
+        completion(resultArray)
     }
 }
 
