@@ -116,6 +116,14 @@ extension Sorters {
 }
 
 //MARK: - Merge sort -
+// Description:
+//Merge sorting is a good sorting algorithm and has consistent performance
+// Divide the list into the smallest unit (1 element)
+// Compare each element with the adjacent list to sort and merge the two adjacent lists
+// Worst case performance O(n log n)
+// Best case performance O(n log n)
+// Average case performance O(n log n)
+
 extension Sorters {
     class func sortMerge(array: [Int], completion: @escaping ([Int]?) -> Void) {
         guard cancelled == false else { completion(nil) ; return }
@@ -178,17 +186,59 @@ extension Sorters {
 }
 
 //MARK: - Quick sort -
+// The quicksort algorithm divides a list/array into two smaller arrays (low elements & high elements)
+// Step 1: Pick a pivot point (In this sample we have picked a random pivot point between the range of the list)
+// Step 2: Divide/Reorder the list so that all the elements smaller than the pivot is added
+// to the low elements array and all the elements greater than the pivot are added to the high element array.
+// Step 3: Repeat Step 1 and Step 2 for the sub arrays/lists
+// Recreate the array by joining (the lowelement array), (the pivot) and (the high element array)
+// Best: n Log n, Average: n log n, Worst:n^2
 extension Sorters {
     class func sortQuick(array: [Int], completion: @escaping ([Int]?) -> Void) {
+        
+        var result = array
+        let sorted = quick(array: &result)
         guard cancelled == false else { completion(nil) ; return }
-        completion(nil)
+        completion(sorted)
     }
+    
+    fileprivate class func quick(array: inout [Int]) -> [Int] {
+
+        if array.count <= 1 {
+            return array
+        }
+        
+        let pivot = array[0]
+        
+        var smaller: [Int] = []
+        var equal: [Int] = []
+        var bigger: [Int] = []
+        
+        for x in array {
+            if cancelled { return [] }
+            switch x {
+            case let x where x < pivot:
+                smaller.append(x)
+            case let x where x == pivot:
+                equal.append(x)
+            case let x where x > pivot:
+                bigger.append(x)
+            default:
+                break
+            }
+        }
+        
+        return quick(array: &smaller) + equal + quick(array: &bigger)
+    }
+    
+    
 }
 
 //MARK: - Bucket sort -
 extension Sorters {
     class func sortBucket(array: [Int], completion: @escaping ([Int]?) -> Void) {
         guard cancelled == false else { completion(nil) ; return }
+        
         completion(nil)
     }
 }

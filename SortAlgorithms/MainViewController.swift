@@ -230,7 +230,7 @@ extension MainViewController {
         case Constants.Sorters.merge:
             Sorters.sortMerge(array: array, completion: sortedCompletion)
         case Constants.Sorters.quick:
-            Sorters.sortMerge(array: array, completion: sortedCompletion)
+            Sorters.sortQuick(array: array, completion: sortedCompletion)
         case Constants.Sorters.bucket:
             Sorters.sortBucket(array: array, completion: sortedCompletion)
         default:
@@ -254,7 +254,7 @@ extension MainViewController {
         stopClock()
         if array != nil {
             setupProcess(status: .sorted)
-           // print(array!)
+            //print(array!)
         } else {
             setupProcess(status: .ready)
         }
