@@ -91,10 +91,27 @@ extension Sorters {
 }
 
 //MARK: - Insertion sort -
+// Description:
+// Simple Implementation
+// Efficient on smaller datasets
+// more efficient than selection sort and bubble sort
+// T(n) = (c1+ c3)(n-1) + c3x(n(n-1)/2) = an^2 + 2bn + c = O(n^2)
+//Best =  n, Average = n^2, Worst = n^2
 extension Sorters {
     class func sortInsertion(array: [Int], completion: @escaping ([Int]?) -> Void) {
         guard cancelled == false else { completion(nil) ; return }
-        completion(nil)
+        
+        var resultArray = array
+
+        for index in 1..<resultArray.count {
+            var index2 = index
+            while index2 > 0 && resultArray[index2-1] > resultArray[index2] {
+                guard cancelled == false else { completion(nil) ; return }
+                swap(&resultArray[index2], &resultArray[index2-1])
+                index2 -= 1
+            }
+        }
+        completion(resultArray)
     }
 }
 
@@ -102,7 +119,61 @@ extension Sorters {
 extension Sorters {
     class func sortMerge(array: [Int], completion: @escaping ([Int]?) -> Void) {
         guard cancelled == false else { completion(nil) ; return }
-        completion(nil)
+        
+        let result = mergeSort(array: array)
+        completion(result)
+    }
+    
+    fileprivate class func mergeSort(array: [Int]) -> [Int]? {
+        guard cancelled == false else { return nil }
+        guard array.count > 1 else { return array }
+        
+        let middle = array.count / 2
+        
+        let leftSorted = mergeSort(array: Array(array[0..<middle]))
+        let rightSorted = mergeSort(array: Array(array[middle..<array.count]))
+        
+        if let leftSorted = leftSorted, let rightSorted = rightSorted {
+            return merge(left: leftSorted, right: rightSorted)
+        } else {
+            return nil
+        }
+    }
+    
+    fileprivate class func merge(left: [Int], right: [Int]) -> [Int]? {
+        
+        var result: [Int] = []
+        var leftIndex = 0
+        var rightIndex = 0
+        
+        while leftIndex < left.count && rightIndex < right.count {
+            guard cancelled == false else { return nil }
+            
+            if left[leftIndex] < right[rightIndex] {
+                result.append(left[leftIndex])
+                leftIndex += 1
+            } else if left[leftIndex] > right[rightIndex] {
+                result.append(right[rightIndex])
+                rightIndex += 1
+            } else {
+                result.append(left[leftIndex])
+                leftIndex += 1
+                result.append(right[rightIndex])
+                rightIndex += 1
+            }
+        }
+        
+        while leftIndex < left.count {
+            result.append(left[leftIndex])
+            leftIndex += 1
+        }
+        
+        while rightIndex < right.count {
+            result.append(right[rightIndex])
+            rightIndex += 1
+        }
+        
+        return result
     }
 }
 

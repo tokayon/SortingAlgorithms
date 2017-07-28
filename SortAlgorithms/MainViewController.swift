@@ -254,7 +254,7 @@ extension MainViewController {
         stopClock()
         if array != nil {
             setupProcess(status: .sorted)
-            print(array!)
+           // print(array!)
         } else {
             setupProcess(status: .ready)
         }
