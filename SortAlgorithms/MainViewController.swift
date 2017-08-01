@@ -41,13 +41,13 @@ class MainViewController: UIViewController {
     
     var processStatus: Status = .ready
     
+    var sorter: Sorter? = nil
     var sortedCompletion: ([Int]?) -> () = {_ in }
     
     //MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupProcess(status: .ready)
-        
         sortedCompletion = { sortedArray in
             DispatchQueue.main.async {
                 self.handleSorted(array: sortedArray)
@@ -61,11 +61,9 @@ class MainViewController: UIViewController {
     
     @IBAction func startPressed(_ sender: UIButton) {
         if processStatus == .ready {
-            resetClock()
-            Generator.cancelled = false
-            Sorters.cancelled = false
             setupProcess(status: .generating)
         } else if processStatus == .generating || processStatus == .sorting {
+            guard typeOfSorting != Constants.Sorters.swift else { return }
             cancelProcess()
         }
     }
@@ -165,6 +163,7 @@ extension MainViewController {
             startSortingAnimation()
             startClock()
         case .sorted:
+
             DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
                 self.setupProcess(status: .ready)
             })
@@ -201,9 +200,11 @@ extension MainViewController {
     
     func generateArray(size: Int) {
         DispatchQueue.global().async {
+            Generator.cancelled = false
             Generator.generateArray(size: size) { result in
                 self.stopGeneratingAnimation()
                 if result == nil {
+                    print("SetupProcess from generating")
                     self.setupProcess(status: .ready)
                 } else {
                     self.setupProcess(status: .sorting)
@@ -220,31 +221,34 @@ extension MainViewController {
         guard self.processStatus == .sorting else { return }
         switch typeOfSorting {
         case Constants.Sorters.swift:
-            Sorters.sortSwift(array: array, completion: sortedCompletion)
+            let sortedArray = array.sorted()
+            sortedCompletion(sortedArray)
         case Constants.Sorters.bubble:
-            Sorters.sortBubble(array: array, completion: sortedCompletion)
+            sorter = BubbleSorter()
         case Constants.Sorters.selection:
-            Sorters.sortSelection(array: array, completion: sortedCompletion)
+            sorter = SelectionSorter()
         case Constants.Sorters.insertion:
-            Sorters.sortInsertion(array: array, completion: sortedCompletion)
+            sorter = InsertionSorter()
         case Constants.Sorters.merge:
-            Sorters.sortMerge(array: array, completion: sortedCompletion)
+            sorter = MergeSorter()
         case Constants.Sorters.quick:
-            Sorters.sortQuick(array: array, completion: sortedCompletion)
+            sorter = QuickSorter()
         case Constants.Sorters.bucket:
-            Sorters.sortBucket(array: array, completion: sortedCompletion)
+            print("Bucket")
         default:
             break
         }
-
+        if let sorter = sorter {
+            sorter.sort(array: array, completion: sortedCompletion)
+        }
     }
     
     func cancelProcess() {
         print("Cancel")
         stopGeneratingAnimation()
         stopSortingAnimation()
-        Generator.cancelled = true
-        Sorters.cancelled = true
+        Generator.cancel()
+        if let sorter = sorter { sorter.cancel() }
         resetClock()
         setupProcess(status: .ready)
     }

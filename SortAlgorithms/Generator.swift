@@ -32,6 +32,9 @@ class Generator: NSObject {
         }
     }
     
+    class func cancel() {
+        self.cancelled = true
+    }
 }
 
 extension Generator {

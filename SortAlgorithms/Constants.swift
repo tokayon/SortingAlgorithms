@@ -47,7 +47,7 @@ struct Constants {
         //n²
         
         
-        static let swiftDescription = "Build-in Swift sorter.\nlet sortedArray = array.sorted()"
+        static let swiftDescription = "Build-in Swift sorter.\nlet sortedArray = array.sorted()\nWarning! Swift sorting algorithm is encapsulated and cannot be cancelled."
         static let bubbleDescription =     "Bubble sort is a simple sorting algorithm that repeatedly steps through the list to be sorted.\nBubble sort has worst-case and average complexity both О(n²), where n is the number of items being sorted.\nBubble sort should be avoided in the case of large collections.\nIt will not be efficient in the case of a reverse-ordered collection."
         
         static let selectionDescription =  "In computer science, selection sort is a sorting algorithm, specifically an in-place comparison sort.\nIt has O(n²) time complexity, making it inefficient on large lists, and generally performs worse than the similar insertion sort. Selection sort is noted for its simplicity, and it has performance advantages over more complicated algorithms in certain situations, particularly where auxiliary memory is limited."
