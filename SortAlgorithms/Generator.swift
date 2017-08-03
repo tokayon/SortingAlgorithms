@@ -11,7 +11,9 @@ import Foundation
 
 class Generator: NSObject {
     
-    static let upperBound: UInt32 = 100
+    //Upper divider. Size of array = 5000. Upper divider = 10. Upper bound = 500.
+    //Array with 5000 numbers from 1 to 500.
+    static let upperDivider = 10
     static let parts: Int = 3
     static var  cancelled: Bool = false
     
@@ -25,7 +27,7 @@ class Generator: NSObject {
                 }
                 return
             }
-            array.append(generateNumber())
+            array.append(generateNumber(upperBound: size/upperDivider))
         }
         DispatchQueue.main.async {
             completion(array)
@@ -39,7 +41,7 @@ class Generator: NSObject {
 
 extension Generator {
     
-    fileprivate class func generateNumber() -> Int {
-        return Int(arc4random_uniform(upperBound) + UInt32(1))
+    fileprivate class func generateNumber(upperBound: Int) -> Int {
+        return Int(arc4random_uniform(UInt32(upperBound)) + UInt32(1))
     }
 }

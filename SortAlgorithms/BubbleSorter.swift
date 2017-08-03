@@ -25,6 +25,7 @@ class BubbleSorter: Sorter {
         while swapped {
             swapped = false
             for index in 1..<array.count  {
+                guard cancelled == false else { return [] }
                 if resultArray[index-1] > resultArray[index] {
                     swap(&resultArray[index-1], &resultArray[index])
                     swapped = true

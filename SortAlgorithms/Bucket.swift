@@ -24,8 +24,8 @@ public struct Bucket {
         }
     }
     
-//    public mutating func quickSort() -> [Int] {
-//        return Sorters.quick(array: &elements)
-//    }
+    public mutating func sort(algorithm: Sorter) -> [Int] {
+        return algorithm.sort(array: elements)
+    }
     
 }

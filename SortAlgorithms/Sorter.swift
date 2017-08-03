@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol Sorter {
+public protocol Sorter {
     var cancelled: Bool { get set }
     func sort(array: [Int]) -> [Int]
     func sort(array: [Int], completion: @escaping ([Int]?) -> Void)

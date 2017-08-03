@@ -234,7 +234,7 @@ extension MainViewController {
         case Constants.Sorters.quick:
             sorter = QuickSorter()
         case Constants.Sorters.bucket:
-            print("Bucket")
+            sorter = BucketSorter()
         default:
             break
         }
