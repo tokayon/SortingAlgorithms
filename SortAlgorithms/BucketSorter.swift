@@ -23,19 +23,20 @@ class BucketSorter: Sorter {
     
     //Original algorithm
     func sort(array: [Int]) -> [Int] {
-        var resultArray = array
-        var swapped: Bool = true
-        while swapped {
-            swapped = false
-            for index in 1..<array.count  {
-                guard cancelled == false else { return [] }
-                if resultArray[index-1] > resultArray[index] {
-                    swap(&resultArray[index-1], &resultArray[index])
-                    swapped = true
-                }
-            }
+        guard array.count > numberOfBuckets else { return [] }
+        let capacity = array.count / numberOfBuckets
+        
+        
+        let distributor = Distributor()
+        let sorter = QuickSorter()
+        let bucket = Bucket(capacity: capacity)
+        let buckets = [Bucket](repeatElement(bucket, count: numberOfBuckets))
+        let resultArray = bucketSort(array, distributor: distributor, sorter: sorter, buckets: buckets)
+        if resultArray != nil {
+            return resultArray!
+        } else {
+            return []
         }
-        return resultArray
     }
     
     
@@ -45,9 +46,9 @@ class BucketSorter: Sorter {
         guard array.count > numberOfBuckets else { completion(nil) ; return }
         let capacity = array.count / numberOfBuckets
         
-        
         let distributor = Distributor()
         let sorter = QuickSorter()
+        sorter.cancelled = self.cancelled
         let bucket = Bucket(capacity: capacity)
         let buckets = [Bucket](repeatElement(bucket, count: numberOfBuckets))
         let resultArray = bucketSort(array, distributor: distributor, sorter: sorter, buckets: buckets)
@@ -60,16 +61,18 @@ class BucketSorter: Sorter {
 }
 
 extension BucketSorter {
-    fileprivate func bucketSort(_ elements: [Int], distributor: Distributor, sorter: Sorter, buckets: [Bucket]) -> [Int] {
+    fileprivate func bucketSort(_ elements: [Int], distributor: Distributor, sorter: Sorter, buckets: [Bucket]) -> [Int]? {
         
         var bucketsCopy = buckets
         for element in elements {
+            guard cancelled == false else { return nil }
             distributor.distribute(element: element, buckets: &bucketsCopy)
         }
         
         var results: [Int] = []
         
         for var bucket in bucketsCopy {
+            guard cancelled == false else { return nil }
             results += bucket.sort(algorithm: sorter)
         }
         
