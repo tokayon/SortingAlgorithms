@@ -270,7 +270,9 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: Constants.Identifiers.details, sender: indexPath)
+        if indexPath.row == 0 || indexPath.row == 1 {
+            performSegue(withIdentifier: Constants.Identifiers.details, sender: indexPath)
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -300,6 +302,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Identifiers.statusCell) as! StatusCell
+            cell.selectionStyle = .none
             cell.dotLabel.text = dots[0]
             cell.statusLabel.text = processStatus.rawValue
             timeLabel = cell.timeLabel
@@ -315,11 +318,14 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 extension MainViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let detailVC = segue.destination as! DetailViewController
-        
-        if let indexPath = sender as? IndexPath, indexPath.row == 0 {
+        guard let indexPath = sender as? IndexPath else { return }
+        switch indexPath.row {
+        case 0:
             detailVC.pickerType = .sizes
-        } else if let indexPath = sender as? IndexPath, indexPath.row == 1 {
+        case 1:
             detailVC.pickerType = .sorters
+        default:
+            break
         }
         detailVC.selectedSize = sizeOfArray
         detailVC.selectedType = typeOfSorting
