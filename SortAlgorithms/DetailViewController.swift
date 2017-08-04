@@ -99,7 +99,8 @@ extension DetailViewController {
     
     func updateDescriptionWithSize(size: Int) {
         let amount = sizes[size]
-        let desc = "Unsorted array of \(amount) numbers\nfrom 1 to 100"
+        let upper = sizes[size].intValue / 10
+        let desc = "Unsorted array of \(amount) numbers\nfrom 1 to \(upper)"
         descriptionLabel.text = desc
     }
     

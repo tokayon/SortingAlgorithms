@@ -19,6 +19,7 @@ import Foundation
  */
 class BucketSorter: Sorter {
     var cancelled: Bool = false
+    var numberOfBuckets: Int = 10
     
     //Original algorithm
     func sort(array: [Int]) -> [Int] {
@@ -41,21 +42,10 @@ class BucketSorter: Sorter {
     //Cancellable sorting
     func sort(array: [Int], completion: @escaping ([Int]?) -> Void) {
         guard cancelled == false else { completion(nil) ; return }
+        guard array.count > numberOfBuckets else { completion(nil) ; return }
+        let capacity = array.count / numberOfBuckets
         
         
-        //
-//        * If the range of values to sort is 0...49 i.e, there could be 5 buckets of capacity = 10
-//        * So every element will be classified by the ranges:
-//        *
-//        * -  0 ..< 10
-//        * - 10 ..< 20
-//        * - 20 ..< 30
-//        * - 30 ..< 40
-//        * - 40 ..< 50
-        //1000. 1...100. 11 buckets  of capacity = 100
-        
-        let numberOfBuckets = 100
-        let capacity = array.count / numberOfBuckets + 1
         let distributor = Distributor()
         let sorter = QuickSorter()
         let bucket = Bucket(capacity: capacity)
