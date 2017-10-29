@@ -38,7 +38,7 @@ class SelectionSorter: Sorter {
                 }
             }
             if iMin != index {
-                swap(&resultArray[index], &resultArray[iMin])
+                resultArray.swapAt(index, iMin)
             }
         }
         return resultArray
@@ -61,7 +61,7 @@ class SelectionSorter: Sorter {
                 }
             }
             if iMin != index {
-                swap(&resultArray[index], &resultArray[iMin])
+                resultArray.swapAt(index, iMin)
             }
         }
         completion(resultArray)

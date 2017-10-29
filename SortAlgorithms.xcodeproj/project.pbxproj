@@ -27,6 +27,11 @@
 		E7793C901F245BDF00957F76 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7793C8F1F245BDF00957F76 /* Constants.swift */; };
 		E7793C961F2717AF00957F76 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7793C951F2717AF00957F76 /* Extensions.swift */; };
 		E7793C981F28806D00957F76 /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7793C971F28806D00957F76 /* Generator.swift */; };
+		E7D07CCD1F3806C5009CD944 /* ProcessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7D07CCC1F3806C5009CD944 /* ProcessView.xib */; };
+		E7D07CCF1F3807A7009CD944 /* ProcessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D07CCE1F3807A7009CD944 /* ProcessView.swift */; };
+		E7D07CD11F380B8B009CD944 /* ProcessCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D07CD01F380B8B009CD944 /* ProcessCoordinator.swift */; };
+		E7D07CD31F381026009CD944 /* ProcessViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D07CD21F381026009CD944 /* ProcessViewManager.swift */; };
+		E7D07CD51F383F47009CD944 /* EasyTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D07CD41F383F47009CD944 /* EasyTimer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +57,11 @@
 		E7793C8F1F245BDF00957F76 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E7793C951F2717AF00957F76 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E7793C971F28806D00957F76 /* Generator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Generator.swift; sourceTree = "<group>"; };
+		E7D07CCC1F3806C5009CD944 /* ProcessView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProcessView.xib; sourceTree = "<group>"; };
+		E7D07CCE1F3807A7009CD944 /* ProcessView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessView.swift; sourceTree = "<group>"; };
+		E7D07CD01F380B8B009CD944 /* ProcessCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessCoordinator.swift; sourceTree = "<group>"; };
+		E7D07CD21F381026009CD944 /* ProcessViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessViewManager.swift; sourceTree = "<group>"; };
+		E7D07CD41F383F47009CD944 /* EasyTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasyTimer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +107,7 @@
 		E7793C741F24447400957F76 /* SortAlgorithms */ = {
 			isa = PBXGroup;
 			children = (
+				E7D07CCB1F3806B2009CD944 /* ProcessView */,
 				E7793C921F245C0400957F76 /* Cells */,
 				E7408D051F3033B800F56FED /* Sorters */,
 				E7793C941F245C1C00957F76 /* Utilities */,
@@ -145,8 +156,20 @@
 				E7793C951F2717AF00957F76 /* Extensions.swift */,
 				E7793C971F28806D00957F76 /* Generator.swift */,
 				E74E1CBC1F330B720017F528 /* Distributor.swift */,
+				E7D07CD41F383F47009CD944 /* EasyTimer.swift */,
 			);
 			name = Utilities;
+			sourceTree = "<group>";
+		};
+		E7D07CCB1F3806B2009CD944 /* ProcessView */ = {
+			isa = PBXGroup;
+			children = (
+				E7D07CCC1F3806C5009CD944 /* ProcessView.xib */,
+				E7D07CCE1F3807A7009CD944 /* ProcessView.swift */,
+				E7D07CD01F380B8B009CD944 /* ProcessCoordinator.swift */,
+				E7D07CD21F381026009CD944 /* ProcessViewManager.swift */,
+			);
+			name = ProcessView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,12 +199,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = SergeSinkevych;
 				TargetAttributes = {
 					E7793C711F24447400957F76 = {
 						CreatedOnToolsVersion = 8.3.1;
 						DevelopmentTeam = 5PWYZ4J78Z;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -212,6 +236,7 @@
 				E7793C801F24447400957F76 /* LaunchScreen.storyboard in Resources */,
 				E7793C7D1F24447400957F76 /* Assets.xcassets in Resources */,
 				E7793C7B1F24447400957F76 /* Main.storyboard in Resources */,
+				E7D07CCD1F3806C5009CD944 /* ProcessView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,10 +252,12 @@
 				E7793C981F28806D00957F76 /* Generator.swift in Sources */,
 				E7793C8C1F24574700957F76 /* DetailViewController.swift in Sources */,
 				E7408D021F2F1F8400F56FED /* Bucket.swift in Sources */,
+				E7D07CCF1F3807A7009CD944 /* ProcessView.swift in Sources */,
 				E7408D071F30341200F56FED /* BubbleSorter.swift in Sources */,
 				E74E1CBF1F3310E10017F528 /* BucketSorter.swift in Sources */,
 				E7793C8E1F24596000957F76 /* MainViewController.swift in Sources */,
 				E74E1CBD1F330B720017F528 /* Distributor.swift in Sources */,
+				E7D07CD11F380B8B009CD944 /* ProcessCoordinator.swift in Sources */,
 				E7793C881F24489100957F76 /* OptionCell.swift in Sources */,
 				E7408D111F3059CE00F56FED /* QuickSorter.swift in Sources */,
 				E7408D0F1F30553F00F56FED /* MergeSorter.swift in Sources */,
@@ -238,6 +265,8 @@
 				E7793C901F245BDF00957F76 /* Constants.swift in Sources */,
 				E7408D041F2F21D100F56FED /* Sorter.swift in Sources */,
 				E7793C961F2717AF00957F76 /* Extensions.swift in Sources */,
+				E7D07CD51F383F47009CD944 /* EasyTimer.swift in Sources */,
+				E7D07CD31F381026009CD944 /* ProcessViewManager.swift in Sources */,
 				E7408D0D1F30545000F56FED /* InsertionSorter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -274,7 +303,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -282,7 +313,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -324,7 +359,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -332,7 +369,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -366,7 +407,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tokayon.SortAlgorithms;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -379,7 +421,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tokayon.SortAlgorithms;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

@@ -24,7 +24,7 @@ class InsertionSorter: Sorter {
         for index in 1..<resultArray.count {
             var index2 = index
             while index2 > 0 && resultArray[index2-1] > resultArray[index2] {
-                swap(&resultArray[index2], &resultArray[index2-1])
+                resultArray.swapAt(index2, index2-1)
                 index2 -= 1
             }
         }
@@ -41,7 +41,7 @@ class InsertionSorter: Sorter {
             var index2 = index
             while index2 > 0 && resultArray[index2-1] > resultArray[index2] {
                 guard cancelled == false else { completion(nil) ; return }
-                swap(&resultArray[index2], &resultArray[index2-1])
+                resultArray.swapAt(index2, index2-1)
                 index2 -= 1
             }
         }

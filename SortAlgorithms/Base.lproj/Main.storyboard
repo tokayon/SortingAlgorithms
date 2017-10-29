@@ -30,7 +30,7 @@
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="optionCellID" rowHeight="100" id="j7E-GP-wln" customClass="OptionCell" customModule="SortAlgorithms" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="55" width="383" height="100"/>
+                                        <rect key="frame" x="0.0" y="56" width="383" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="j7E-GP-wln" id="wyq-Gz-oSP">
                                             <rect key="frame" x="0.0" y="0.0" width="350" height="99"/>
@@ -64,10 +64,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="statusCellID" rowHeight="200" id="69V-Wi-W3R" customClass="StatusCell" customModule="SortAlgorithms" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="155" width="383" height="200"/>
+                                        <rect key="frame" x="0.0" y="156" width="383" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="69V-Wi-W3R" id="rKj-ua-4tr">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="200"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="199"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Status:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cko-Sv-YX6">
@@ -77,7 +77,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="00:00.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rZ1-8B-B7u">
-                                                    <rect key="frame" x="78.5" y="43" width="227.5" height="74.5"/>
+                                                    <rect key="frame" x="78" y="43" width="228" height="75"/>
                                                     <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="65"/>
                                                     <color key="textColor" red="0.94509804249999996" green="0.94509804249999996" blue="0.94509804249999996" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -122,7 +122,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OdC-x1-JOa">
-                                <rect key="frame" x="-0.5" y="600.5" width="375" height="66.5"/>
+                                <rect key="frame" x="-1" y="601" width="376" height="66"/>
                                 <color key="backgroundColor" red="0.1647058874" green="0.54117647058823526" blue="0.25098039215686274" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Baskerville-Bold" family="Baskerville" pointSize="17"/>
                                 <state key="normal" title="START">
@@ -185,27 +185,52 @@
                                 </connections>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="w24-cd-DEC">
-                                <rect key="frame" x="19.5" y="300" width="335" height="20"/>
+                                <rect key="frame" x="20" y="300" width="335" height="20"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="17"/>
                                 <color key="textColor" red="0.94509804249999996" green="0.94509804249999996" blue="0.94509804249999996" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NUw-lF-Cb6">
+                                <rect key="frame" x="0.0" y="601" width="375" height="66"/>
+                                <color key="backgroundColor" red="0.81568627450980391" green="0.29411764705882354" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Baskerville-Bold" family="Baskerville" pointSize="17"/>
+                                <state key="normal" title="GENERATE">
+                                    <color key="titleColor" red="0.94509804249999996" green="0.94509804249999996" blue="0.94509804249999996" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="generate:" destination="V7k-ws-ENL" eventType="touchUpInside" id="Gmr-Pw-QZp"/>
+                                    <action selector="startPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qlJ-CS-2jT"/>
+                                </connections>
+                            </button>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rPk-yN-MrF" customClass="ProcessView" customModule="SortAlgorithms" customModuleProvider="target">
+                                <rect key="frame" x="75" y="527" width="225" height="66"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.039215686274509803" green="0.039215686274509803" blue="0.039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.41115102170000001" green="0.78270483020000003" blue="0.88133502009999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="rPk-yN-MrF" firstAttribute="width" secondItem="NUw-lF-Cb6" secondAttribute="width" multiplier="0.6" id="2bj-LY-YDb"/>
                             <constraint firstItem="w24-cd-DEC" firstAttribute="top" secondItem="dh9-sh-12q" secondAttribute="bottom" constant="20" id="960-ix-3om"/>
+                            <constraint firstItem="oUX-wc-QX6" firstAttribute="top" secondItem="NUw-lF-Cb6" secondAttribute="bottom" id="9fq-WC-drc"/>
+                            <constraint firstItem="NUw-lF-Cb6" firstAttribute="top" secondItem="rPk-yN-MrF" secondAttribute="bottom" constant="8" id="Am8-hp-VI8"/>
+                            <constraint firstItem="rPk-yN-MrF" firstAttribute="centerX" secondItem="Cw8-g3-FxV" secondAttribute="centerX" id="Csh-Sy-Cxb"/>
+                            <constraint firstItem="NUw-lF-Cb6" firstAttribute="width" secondItem="Cw8-g3-FxV" secondAttribute="width" id="DgV-AN-KHO"/>
                             <constraint firstItem="dh9-sh-12q" firstAttribute="top" secondItem="5iT-mr-iYO" secondAttribute="bottom" id="Tbg-A5-uLF"/>
                             <constraint firstItem="dh9-sh-12q" firstAttribute="centerX" secondItem="Cw8-g3-FxV" secondAttribute="centerX" id="TeY-xm-wEJ"/>
+                            <constraint firstItem="NUw-lF-Cb6" firstAttribute="centerX" secondItem="Cw8-g3-FxV" secondAttribute="centerX" id="Z9u-I5-Sz1"/>
+                            <constraint firstItem="NUw-lF-Cb6" firstAttribute="height" secondItem="Cw8-g3-FxV" secondAttribute="height" multiplier="0.1" id="Zml-Kx-gA4"/>
                             <constraint firstItem="oUX-wc-QX6" firstAttribute="top" relation="greaterThanOrEqual" secondItem="w24-cd-DEC" secondAttribute="bottom" constant="20" id="dPq-BQ-04f"/>
                             <constraint firstItem="w24-cd-DEC" firstAttribute="centerX" secondItem="Cw8-g3-FxV" secondAttribute="centerX" id="eCu-I3-Zu0"/>
+                            <constraint firstItem="rPk-yN-MrF" firstAttribute="height" secondItem="NUw-lF-Cb6" secondAttribute="height" id="ntp-Z1-d8m"/>
                             <constraint firstItem="w24-cd-DEC" firstAttribute="width" secondItem="Cw8-g3-FxV" secondAttribute="width" constant="-40" id="p8Z-qL-Als"/>
                             <constraint firstItem="dh9-sh-12q" firstAttribute="width" secondItem="Cw8-g3-FxV" secondAttribute="width" id="xdG-qx-aSa"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="descriptionLabel" destination="w24-cd-DEC" id="1cX-aE-bJu"/>
+                        <outlet property="generateButton" destination="NUw-lF-Cb6" id="J0Y-Aq-Ias"/>
                         <outlet property="pickerView" destination="dh9-sh-12q" id="wgx-wt-q5C"/>
+                        <outlet property="processView" destination="rPk-yN-MrF" id="Bv9-SF-UTi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iTk-oL-ecI" userLabel="First Responder" sceneMemberID="firstResponder"/>

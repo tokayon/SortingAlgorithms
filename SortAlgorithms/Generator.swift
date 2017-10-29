@@ -20,17 +20,19 @@ class Generator: NSObject {
     
     class func generateArray(size: Int, completion: @escaping ([Int]?) -> Void) {
         var array: [Int] = []
-        for _ in 1...size {
-            if cancelled {
-                DispatchQueue.main.async {
-                    completion(nil)
+        DispatchQueue.global().async {
+            for _ in 1...size {
+                if cancelled {
+                    DispatchQueue.main.async {
+                        completion(nil)
+                    }
+                    return
                 }
-                return
+                array.append(generateNumber(upperBound: size/upperDivider))
             }
-            array.append(generateNumber(upperBound: size/upperDivider))
-        }
-        DispatchQueue.main.async {
-            completion(array)
+            DispatchQueue.main.async {
+                completion(array)
+            }
         }
     }
     

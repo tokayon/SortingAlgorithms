@@ -16,6 +16,8 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var descriptionLabel: UILabel!
     
+    @IBOutlet weak var processView: ProcessView!
+    @IBOutlet weak var generateButton: UIButton!
     
     //Mark: Properties
     enum PickerType {
@@ -27,6 +29,8 @@ class DetailViewController: UIViewController {
     var selectedSize = Constants.Sizes.ten
     var selectedType = Constants.Sorters.swift
     
+    var processManager: ProcessViewManager? = nil
+
     let sizes = [Constants.Sizes.one,
                  Constants.Sizes.five,
                  Constants.Sizes.ten,
@@ -58,6 +62,9 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         self.navigationItem.title = pickerType == .sizes ? Constants.Labels.sizeOfArray : Constants.Labels.typesOfSorting
         setupPicker()
+        generateButton.isHidden = pickerType != .sizes
+        processManager = ProcessViewManager(processStatus: "Generating", processColor: UIColor.customOrange)
+        processManager?.setupProcessView(view: processView)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -70,6 +77,16 @@ class DetailViewController: UIViewController {
             mainVC.typeOfSorting = selectedType
         }
     }
+    
+    @IBAction func generate(_ sender: UIButton) {
+        processManager?.start()
+        Generator.generateArray(size: selectedSize.intValue) { (result) in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: { 
+                self.processManager?.stop(text: "Generated", color: UIColor.customGreen, completion: nil)
+            })
+        }
+    }
+    
 }
 
 //MARK: - Common methods
@@ -123,8 +140,8 @@ extension DetailViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         let titleData = pickerType == .sizes ? sizes[row] : sorters[row]
         let regularColor = UIColor.customWhite
         let font = UIFont(name: "Baskerville", size: 15)!
-        let attributes = [NSFontAttributeName : font,
-                    NSForegroundColorAttributeName: regularColor]
+        let attributes = [NSAttributedStringKey.font : font,
+                    NSAttributedStringKey.foregroundColor: regularColor]
         let attributed = NSAttributedString(string: titleData, attributes: attributes)
         return attributed
     }

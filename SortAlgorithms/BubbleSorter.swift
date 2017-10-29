@@ -27,7 +27,7 @@ class BubbleSorter: Sorter {
             for index in 1..<array.count  {
                 guard cancelled == false else { return [] }
                 if resultArray[index-1] > resultArray[index] {
-                    swap(&resultArray[index-1], &resultArray[index])
+                    resultArray.swapAt(index-1, index)
                     swapped = true
                 }
             }
@@ -47,7 +47,7 @@ class BubbleSorter: Sorter {
             for index in 1..<array.count  {
                 guard cancelled == false else { completion(nil) ; return }
                 if resultArray[index-1] > resultArray[index] {
-                    swap(&resultArray[index-1], &resultArray[index])
+                    resultArray.swapAt(index-1, index)
                     swapped = true
                 }
             }

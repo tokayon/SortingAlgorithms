@@ -38,6 +38,10 @@ extension UIColor {
         get { return getColorWith(red: 1, green: 162, blue: 216, alpha: 1) }
     }
     
+    static var customYellow: UIColor {
+        get { return getColorWith(red: 216, green: 170, blue: 1, alpha: 1) }
+    }
+    
 }
 
 fileprivate func getColorWith(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> UIColor {

@@ -120,7 +120,7 @@ extension MainViewController {
         }
     }
     
-    func animateGeneratingLabel() {
+    @objc func animateGeneratingLabel() {
         statusLabel?.alpha = 1.0
         UIView.animate(withDuration: 0.5, animations: {
             self.statusLabel?.alpha = 0.3
@@ -173,7 +173,7 @@ extension MainViewController {
 
     }
     
-    func updateClock() {
+    @objc func updateClock() {
         time = Date().timeIntervalSinceReferenceDate - startTime
         let mins = (Int(time)/60)%60
         let secs = time.truncatingRemainder(dividingBy: 60.0)
@@ -190,7 +190,7 @@ extension MainViewController {
         }
     }
     
-    func setupDotLabel() {
+    @objc func setupDotLabel() {
         guard let dotLabel = dotLabel, let text = dotLabel.text else { return }
         dotLabel.text =
             text == dots[0] ? dots[1] :
